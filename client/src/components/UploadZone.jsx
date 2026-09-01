@@ -24,7 +24,9 @@ export default function UploadZone({ onFile, uploading, status }) {
       }}
     >
       <div className="upload-art">📦</div>
-      <h2>Drop file di sini</h2>
+      <h2>
+        Drop <span className="highlight">file</span> di sini
+      </h2>
       <p>atau tap untuk pilih file dari HP / laptop kamu</p>
 
       <input

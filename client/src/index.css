@@ -79,6 +79,18 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
+/* Tekstur titik-titik khas neo-brutalism (kayak di reference) */
+.card,
+.stat {
+  background-image: radial-gradient(rgba(19, 19, 19, 0.07) 1.2px, transparent 1.2px);
+  background-size: 14px 14px;
+}
+
+.highlight {
+  background: linear-gradient(transparent 60%, var(--lime) 60%);
+  padding: 0 2px;
+}
+
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -113,6 +125,7 @@ body {
   cursor: pointer;
 }
 
+/* Efek stacked cards di belakang (kayak tumpukan kartu di reference) */
 .upload-card::before,
 .upload-card::after {
   content: '';
@@ -133,7 +146,7 @@ body {
 }
 
 .upload-card.dragover {
-  background: var(--lime-soft);
+  background-color: var(--lime-soft);
 }
 
 .upload-art {
