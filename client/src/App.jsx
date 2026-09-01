@@ -1,122 +1,87 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useCallback, useEffect, useState } from 'react'
+import UploadZone from './components/UploadZone.jsx'
+import FileCard from './components/FileCard.jsx'
+import { fetchFiles, uploadFile } from './api.js'
+import { formatBytes } from './utils.js'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [files, setFiles] = useState([])
+  const [status, setStatus] = useState('')
+  const [uploading, setUploading] = useState(false)
+
+  const load = useCallback(async () => {
+    try {
+      const data = await fetchFiles()
+      setFiles(Array.isArray(data) ? data : [])
+    } catch {
+      setStatus('Backend belum nyala / tidak terjangkau di port 3000')
+    }
+  }, [])
+
+  useEffect(() => {
+    load()
+  }, [load])
+
+  const handleUpload = async (file) => {
+    setUploading(true)
+    setStatus(`Mengupload ${file.name}...`)
+    try {
+      await uploadFile(file)
+      setStatus(`${file.name} berhasil masuk Drive! Cek Telegram kamu.`)
+      await load()
+    } catch (err) {
+      setStatus(`Gagal upload: ${err.message}`)
+    } finally {
+      setUploading(false)
+    }
+  }
+
+  const totalSize = files.reduce((acc, f) => acc + (f.size || 0), 0)
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="phone">
+      <span className="doodle" style={{ top: 8, left: 8 }} aria-hidden>✦</span>
+      <span className="doodle" style={{ top: 14, right: 10 }} aria-hidden>♥</span>
 
-      <div className="ticks"></div>
+      <header className="header">
+        <h1>
+          Hijau Drive <span className="badge">✓</span>
+        </h1>
+        <p>personal cloud • powered by Telegram</p>
+      </header>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+      <section className="stats">
+        <div className="stat">
+          <b>{files.length}</b>
+          <span>Files</span>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+        <div className="stat">
+          <b>{formatBytes(totalSize)}</b>
+          <span>Total Size</span>
+        </div>
+        <div className="stat">
+          <b>∞</b>
+          <span>Storage</span>
         </div>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <UploadZone onFile={handleUpload} uploading={uploading} status={status} />
+
+      <h2 className="section-title">
+        <span className="active">My Files</span>
+        <span className="inactive">Activity</span>
+      </h2>
+
+      <section className="file-list">
+        {files.length === 0 ? (
+          <div className="empty">Belum ada file. Drop file pertamamu di atas!</div>
+        ) : (
+          [...files].reverse().map((f) => <FileCard key={f.id} file={f} />)
+        )}
+      </section>
+
+      <span className="doodle" style={{ bottom: 10, left: 16 }} aria-hidden>✳</span>
+      <span className="doodle" style={{ bottom: 6, right: 14 }} aria-hidden>✦</span>
+    </div>
   )
 }
-
-export default App
