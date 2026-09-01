@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>CDN Images - Kirim Gambar Secepat Kilat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Space+Grotesk:wght@700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed-variant": "#004f58",
+                      "outline-variant": "#c3caac",
+                      "on-primary-fixed": "#151f00",
+                      "primary-fixed": "#bef500",
+                      "on-surface-variant": "#434933",
+                      "surface-container": "#f0eded",
+                      "surface-dim": "#dcd9d9",
+                      "on-secondary-container": "#00616d",
+                      "surface-variant": "#e5e2e1",
+                      "inverse-primary": "#a6d700",
+                      "inverse-surface": "#313030",
+                      "surface-bright": "#fcf9f8",
+                      "secondary": "#006875",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed-dim": "#a6d700",
+                      "on-tertiary-container": "#b63199",
+                      "primary": "#4e6700",
+                      "secondary-fixed-dim": "#00daf3",
+                      "tertiary-fixed-dim": "#ffade2",
+                      "on-tertiary-fixed": "#3b0030",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed-variant": "#3a4d00",
+                      "surface-container-high": "#eae7e7",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed": "#9cf0ff",
+                      "on-error": "#ffffff",
+                      "background": "#fcf9f8",
+                      "tertiary": "#a7228c",
+                      "secondary-container": "#00e3fd",
+                      "on-background": "#1c1b1b",
+                      "on-surface": "#1c1b1b",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#860070",
+                      "outline": "#747a60",
+                      "inverse-on-surface": "#f3f0ef",
+                      "surface-container-lowest": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-container-highest": "#e5e2e1",
+                      "surface": "#fcf9f8",
+                      "surface-container-low": "#f6f3f2",
+                      "tertiary-fixed": "#ffd8ee",
+                      "on-primary-container": "#587300",
+                      "on-secondary-fixed": "#001f24",
+                      "surface-tint": "#4e6700",
+                      "tertiary-container": "#ffe5f2",
+                      "primary-container": "#c6ff00"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "xl": "48px",
+                      "unit": "4px",
+                      "sm": "8px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-sm": [
+                              "Work Sans"
+                      ],
+                      "code": [
+                              "jetbrainsMono"
+                      ],
+                      "label-bold": [
+                              "Space Grotesk"
+                      ],
+                      "body-lg": [
+                              "Work Sans"
+                      ],
+                      "title-md": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "code": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      }
+          }
+        }
+    </script>
+<style>
+        .neo-shadow { box-shadow: 8px 8px 0px 0px rgba(0,0,0,1); }
+        .neo-shadow-sm { box-shadow: 4px 4px 0px 0px rgba(0,0,0,1); }
+        .neo-border { border: 2px solid #1c1b1b; }
+        .neo-border-thick { border: 4px solid #1c1b1b; }
+        
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Mobile menu animation */
+        .mobile-menu {
+          transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.hidden {
+          transform: translateX(-100%);
+        }
+        
+        .mobile-menu.open {
+          transform: translateX(0);
+        }
+        
+        /* Bottom nav for mobile */
+        @media (max-width: 767px) {
+          .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+          }
+          
+          body {
+            padding-bottom: 80px;
+          }
+        }
+    </style>
+</head>
+<body class="bg-[#F8F8F0] text-on-background font-body-lg min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top NavBar -->
+<nav class="sticky top-0 z-50 flex justify-between items-center w-full px-4 md:px-8 py-3 md:py-4 bg-background border-b-4 border-on-background">
+<div class="flex items-center gap-4 md:gap-8 w-full max-w-7xl mx-auto">
+<!-- Mobile Menu Button -->
+<button id="menuToggle" class="md:hidden w-10 h-10 flex items-center justify-center bg-white neo-border-thick neo-shadow-sm active:translate-y-1 active:translate-x-1 active:shadow-none transition-all">
+<span class="material-symbols-outlined text-xl">menu</span>
+</button>
+
+<span class="font-display-lg text-lg md:text-2xl font-black tracking-tighter uppercase">CDN Images</span>
+
+<div class="hidden md:flex items-center gap-6 ml-8">
+<a class="font-label-bold text-sm text-on-background hover:text-primary transition-colors uppercase" href="#">Home</a>
+<a class="font-label-bold text-sm text-on-background hover:text-primary transition-colors uppercase" href="#">Features</a>
+<a class="font-label-bold text-sm text-on-background hover:text-primary transition-colors uppercase" href="#">Documentation</a>
+</div>
+
+<div class="flex-1 flex justify-end items-center gap-2 md:gap-4">
+<div class="hidden md:flex items-center bg-white neo-border-thick neo-shadow-sm px-4 py-2">
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 outline-none font-bold" placeholder="Search..." type="text"/>
+<span class="material-symbols-outlined text-black">search</span>
+</div>
+<a class="bg-[#c6ff00] text-black font-label-bold text-xs md:text-sm px-4 md:px-6 py-2 neo-border-thick neo-shadow-sm hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all uppercase whitespace-nowrap" href="http://localhost:5173">Log In</a>
+</div>
+</div>
+</nav>
+
+<!-- Mobile Menu Drawer -->
+<div id="mobileMenu" class="mobile-menu hidden fixed inset-0 z-40 md:hidden">
+<div class="absolute inset-0 bg-black/50" id="menuOverlay"></div>
+<div class="absolute left-0 top-0 bottom-0 w-64 bg-background border-r-4 border-black p-6 flex flex-col gap-4">
+<button id="menuClose" class="self-end w-10 h-10 flex items-center justify-center bg-white neo-border-thick neo-shadow-sm mb-4">
+<span class="material-symbols-outlined">close</span>
+</button>
+<a class="font-label-bold text-base text-on-background hover:text-primary transition-colors uppercase py-2 border-b-2 border-gray-200" href="#">Home</a>
+<a class="font-label-bold text-base text-on-background hover:text-primary transition-colors uppercase py-2 border-b-2 border-gray-200" href="#">Features</a>
+<a class="font-label-bold text-base text-on-background hover:text-primary transition-colors uppercase py-2 border-b-2 border-gray-200" href="#">Documentation</a>
+<div class="mt-4 flex items-center bg-white neo-border-thick neo-shadow-sm px-4 py-3">
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full outline-none font-bold" placeholder="Search..." type="text"/>
+<span class="material-symbols-outlined text-black">search</span>
+</div>
+</div>
+</div>
+
+<!-- Main Content Canvas -->
+<main class="flex-grow max-w-7xl mx-auto w-full px-4 md:px-8 py-8 md:py-12 flex flex-col gap-12 md:gap-24">
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden min-h-[400px] md:h-[600px] flex items-center justify-center bg-on-background neo-border-thick neo-shadow">
+<img alt="Fast Image Delivery" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay" data-alt="A high contrast, brutally minimalist depiction of a digital image file being transmitted at hyper speed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO2xv9ZY6fWyX1fUy7esW5WIlk6Qpr7JQ9UrerEdFbpYN80llA28JsiVple46dDwMnb04qOrHjFClkvq1GG83-DpQR9kjJw3l4A7tnNQvwvn7Tpvvc9fy1LeZQWD-HS0fX9CWZAGxirQBQYm6klb6jFzfTsE2-OR53gbLwzJ_o-6VgmJvFh3l84mG6FXzgYIHM6KsS75Hwsq0bCjZz5vHCU60AzkBPDrIbFv5nuNtfOZh08oI9zxwP"/>
+<div class="relative z-10 flex flex-col items-center text-center px-4 md:px-8 max-w-4xl py-12 md:py-0">
+<h1 class="font-display-lg text-4xl md:text-7xl lg:text-[120px] font-black text-white leading-none tracking-tighter mb-4 md:mb-6 uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,1)]">
+                Kirim Gambar
+            </h1>
+<p class="font-body-lg text-base md:text-xl text-white max-w-2xl mb-6 md:mb-8 font-bold drop-shadow-[2px_2px_0_rgba(0,0,0,1)]">
+                Optimasi otomatis, pengiriman instan. Jangan biarkan gambar besar memperlambat website Anda.
+            </p>
+<div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 md:gap-6 w-full sm:w-auto">
+<a class="bg-[#c6ff00] text-black font-label-bold px-6 md:px-8 py-3 neo-border-thick neo-shadow-sm hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all uppercase text-sm md:text-base" href="http://localhost:5173">Coba Gratis</a>
+<a class="bg-white text-black font-label-bold px-6 md:px-8 py-3 neo-border-thick neo-shadow-sm hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all uppercase text-sm md:text-base" href="#">Pelajari Lebih Lanjut</a>
+</div>
+</div>
+</section>
+
+<!-- Features Section -->
+<section class="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
+<div class="w-full md:w-1/3 flex flex-col gap-4 md:gap-6">
+<h2 class="font-headline-lg text-3xl md:text-4xl font-black uppercase tracking-tight">Mengapa Memilih Kami?</h2>
+<p class="font-body-sm text-black font-bold text-sm md:text-base">Dari optimasi otomatis hingga keamanan tingkat tinggi, kami membuat pengiriman aset digital Anda lebih cepat, aman, dan efisien dengan dukungan penuh waktu.</p>
+<div class="flex gap-3 md:gap-4">
+<span class="material-symbols-outlined bg-[#c6ff00] neo-border-thick neo-shadow-sm p-2 md:p-3 cursor-pointer hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all text-xl md:text-2xl">bolt</span>
+<span class="material-symbols-outlined bg-[#ffade2] neo-border-thick neo-shadow-sm p-2 md:p-3 cursor-pointer hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all text-xl md:text-2xl">shield</span>
+<span class="material-symbols-outlined bg-[#9cf0ff] neo-border-thick neo-shadow-sm p-2 md:p-3 cursor-pointer hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all text-xl md:text-2xl">support_agent</span>
+</div>
+<div class="flex gap-6 md:gap-8 mt-6 md:mt-8 border-t-4 border-black pt-6 md:pt-8">
+<div class="text-center">
+<span class="material-symbols-outlined text-3xl md:text-4xl mb-1 md:mb-2">speed</span>
+<div class="font-black text-xl md:text-2xl">99%</div>
+<div class="text-[10px] md:text-xs font-bold uppercase mt-1">Uptime Rate</div>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-3xl md:text-4xl mb-1 md:mb-2">globe</span>
+<div class="font-black text-xl md:text-2xl">50+</div>
+<div class="text-[10px] md:text-xs font-bold uppercase mt-1">Global Nodes</div>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-3xl md:text-4xl mb-1 md:mb-2">timer</span>
+<div class="font-black text-xl md:text-2xl">&lt;50ms</div>
+<div class="text-[10px] md:text-xs font-bold uppercase mt-1">Latency</div>
+</div>
+</div>
+</div>
+
+<div class="w-full md:w-2/3 flex flex-col gap-4 md:gap-6">
+<!-- Feature 1 -->
+<div class="bg-[#c6ff00] text-black neo-border-thick neo-shadow p-4 md:p-6 flex gap-4 md:gap-6 items-center hover:-translate-y-1 hover:-translate-x-1 transition-transform">
+<div class="w-12 h-12 md:w-16 md:h-16 bg-white neo-border-thick neo-shadow-sm flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl md:text-4xl">bolt</span>
+</div>
+<div>
+<h3 class="font-black text-lg md:text-2xl mb-1 md:mb-2 uppercase">Optimasi Otomatis</h3>
+<p class="text-xs md:text-sm font-bold">Gambar Anda dikompresi dan dikonversi ke format WebP secara otomatis tanpa kehilangan kualitas visual.</p>
+</div>
+</div>
+
+<!-- Feature 2 -->
+<div class="bg-[#ffade2] text-black neo-border-thick neo-shadow p-4 md:p-6 flex gap-4 md:gap-6 items-center hover:-translate-y-1 hover:-translate-x-1 transition-transform">
+<div class="w-12 h-12 md:w-16 md:h-16 bg-white neo-border-thick neo-shadow-sm flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl md:text-4xl">shield</span>
+</div>
+<div>
+<h3 class="font-black text-lg md:text-2xl mb-1 md:mb-2 uppercase">Keamanan Terjamin</h3>
+<p class="text-xs md:text-sm font-bold">Proteksi hotlinking dan enkripsi end-to-end memastikan aset digital Anda aman dari pencurian bandwidth.</p>
+</div>
+</div>
+
+<!-- Feature 3 -->
+<div class="bg-[#9cf0ff] text-black neo-border-thick neo-shadow p-4 md:p-6 flex gap-4 md:gap-6 items-center hover:-translate-y-1 hover:-translate-x-1 transition-transform">
+<div class="w-12 h-12 md:w-16 md:h-16 bg-white neo-border-thick neo-shadow-sm flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl md:text-4xl">support_agent</span>
+</div>
+<div>
+<h3 class="font-black text-lg md:text-2xl mb-1 md:mb-2 uppercase">Dukungan 24/7</h3>
+<p class="text-xs md:text-sm font-bold">Tim ahli kami selalu siap membantu Anda mengatasi masalah teknis kapan pun dibutuhkan.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Services/Use Cases Section -->
+<section class="bg-white neo-border-thick neo-shadow p-4 md:p-8 lg:p-12">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-8 gap-4 md:gap-6">
+<div>
+<h2 class="font-headline-lg text-2xl md:text-4xl font-black uppercase tracking-tight">Layanan Unggulan</h2>
+<p class="font-body-sm text-black font-bold max-w-sm mt-2 text-xs md:text-sm">Solusi sempurna untuk berbagai kebutuhan digital Anda, dari website kecil hingga aplikasi skala enterprise.</p>
+</div>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+<!-- Case 1 -->
+<div class="group relative h-[300px] sm:h-[350px] md:h-[400px] overflow-hidden cursor-pointer neo-border-thick neo-shadow-sm bg-black">
+<img alt="E-commerce" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9HsZfQi157yozVjMw1riA_EozzRKJ0dRW79_dLkQzLyLd8e54L47KmmRsutx49h3RIysuyuz0vm6-bU3SQYJ2cVZ8it9Er4e0K0_fQjfwEXEqy5QMNVdUuHXrAaZu_vv1yIv-arcCj5FkB3NAPJVg3Jv76xV4ur3OVgcCUWruvOZvaamoDm_robENlTXhHfI3GPmxXYRh1OJmm7PCHGsSybwwRMTVFCcKB9f9h5uBQujJgz3-1sbM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
+<h4 class="text-white font-black text-xl md:text-2xl mb-1 md:mb-2 uppercase">E-commerce</h4>
+<p class="text-[#c6ff00] font-bold text-xs md:text-sm mb-3 md:mb-4 uppercase">High Res Delivery</p>
+<div class="flex items-center text-white text-xs md:text-sm font-bold bg-black w-max px-3 py-1 neo-border-thick">
+<span>Lihat Detail</span>
+</div>
+</div>
+</div>
+
+<!-- Case 2 -->
+<div class="group relative h-[300px] sm:h-[350px] md:h-[400px] overflow-hidden cursor-pointer neo-border-thick neo-shadow-sm bg-black">
+<img alt="Portofolio Digital" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFY9D7JFD_vUBR5i6ZGQvL9gv__jSQsUYnyOGs8ToIXre90IMZPcVenBsD2L_0OFe-Tja21sZoUx_KXW2B_cR_pRq616H5ozQkZ8BzRQ_DLAmtSRHfhQz_Nzlq1uRkRPzDjox5Qk-aqpxnv-S5yl_HZgukV5XO6pKcfGKxVD5gFiRsDrBNpHm8Y4f_HTfh3tvuaDPy41nlmHVSwDOz9Gy2nR8GFeavDhXE2X-tzJKW0G3f2zrp-joH"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
+<h4 class="text-white font-black text-xl md:text-2xl mb-1 md:mb-2 uppercase">Portofolio Digital</h4>
+<p class="text-[#ffade2] font-bold text-xs md:text-sm mb-3 md:mb-4 uppercase">Fast Load Optimized</p>
+</div>
+</div>
+
+<!-- Case 3 -->
+<div class="group relative h-[300px] sm:h-[350px] md:h-[400px] overflow-hidden cursor-pointer neo-border-thick neo-shadow-sm bg-black">
+<img alt="Aplikasi Mobile" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFYfXLd60P9hMb8NHx3JAkIgweaqWjOwlDlJ3SqsBhnTgMTZspR4b12rFsfTNRVdHv6BsnRSAt-KbM96Jo7t4bju4yuUKI2ZZkTW06j4XL3msMGhGQpe8pHwBjS4TAAdnrSIJniZ-P4bfz0WSUarqZap6pVhaZuzGMFSSBUN6sqY23Mr74CY8oCvIhBCQrm0hyWnhjHVr3hh9utEhNBz0GEUs5ljB0L7ABwZVl718MhvqRS-6gwerQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
+<h4 class="text-white font-black text-xl md:text-2xl mb-1 md:mb-2 uppercase">Aplikasi Mobile</h4>
+<p class="text-[#9cf0ff] font-bold text-xs md:text-sm mb-3 md:mb-4 uppercase">Lightweight Assets</p>
+</div>
+</div>
+
+<!-- Case 4 -->
+<div class="group relative h-[300px] sm:h-[350px] md:h-[400px] overflow-hidden cursor-pointer neo-border-thick neo-shadow-sm bg-black">
+<img alt="Portal Berita" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWep5EtFM7p7HrRgD8uiI7wS2yMfSsNG8gdwbtYw7H1BcOgDJ5usXECVOPdo3FRxEIll7B_qRqlWagD0cyJcIP-70JPly4xh15zJ9FZXuv4WiN1V8SRM9BhfhtaPPV_cgzBXmlOV8jvfwMEAGZCR7BKKTtd5Kd5cTskHgenfa5b7B9hEUYeVs0aep5ejoe8kKAx3KB-SvIMYakoAeXzOWkRQEoz1nS1AQNi85BW4-5AnqjXM8ODXwi"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
+<h4 class="text-white font-black text-xl md:text-2xl mb-1 md:mb-2 uppercase">Portal Berita</h4>
+<p class="text-[#c6ff00] font-bold text-xs md:text-sm mb-3 md:mb-4 uppercase">Global CDN Edge</p>
+</div>
+</div>
+</div>
+
+<div class="mt-6 md:mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+<a class="bg-[#c6ff00] text-black font-label-bold px-6 md:px-8 py-2 md:py-3 neo-border-thick neo-shadow-sm uppercase hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all text-sm md:text-base" href="#">Lihat Semua</a>
+<div class="flex gap-3 md:gap-4">
+<button class="w-10 h-10 md:w-12 md:h-12 bg-white neo-border-thick neo-shadow-sm flex items-center justify-center hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all">
+<span class="material-symbols-outlined text-xl md:text-2xl">chevron_left</span>
+</button>
+<button class="w-10 h-10 md:w-12 md:h-12 bg-white neo-border-thick neo-shadow-sm flex items-center justify-center hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all">
+<span class="material-symbols-outlined text-xl md:text-2xl">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="w-full bg-white border-t-4 border-black flex flex-col md:flex-row justify-between items-center px-4 md:px-8 py-6 md:py-8 max-w-7xl mx-auto mt-8 md:mt-12">
+<div class="flex items-center gap-4 mb-4 md:mb-0">
+<span class="font-display-lg text-base md:text-xl font-black text-on-background uppercase">CDN Images</span>
+</div>
+<div class="flex flex-wrap justify-center gap-4 md:gap-6 font-body-sm text-xs md:text-sm font-bold uppercase mb-4 md:mb-0">
+<a class="text-black hover:text-primary transition-colors" href="#">Terms</a>
+<a class="text-black hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="text-black hover:text-primary transition-colors" href="#">Status</a>
+<a class="text-black hover:text-primary transition-colors" href="#">Twitter</a>
+</div>
+<div class="font-body-sm text-xs md:text-sm text-black font-bold uppercase text-center md:text-right">
+        © 2024 CDN Images. Built for speed.
+    </div>
+</footer>
+
+<!-- Bottom Navigation for Mobile -->
+<nav class="bottom-nav md:hidden bg-white border-t-4 border-black flex justify-around items-center px-4 py-3">
+<a href="#" class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-xl">home</span>
+<span class="text-[10px] font-bold uppercase">Home</span>
+</a>
+<a href="#" class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-xl">image</span>
+<span class="text-[10px] font-bold uppercase">Upload</span>
+</a>
+<a href="#" class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-xl">folder</span>
+<span class="text-[10px] font-bold uppercase">Files</span>
+</a>
+<a href="#" class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-xl">person</span>
+<span class="text-[10px] font-bold uppercase">Profile</span>
+</a>
+</nav>
+
+<script>
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuClose = document.getElementById('menuClose');
+const menuOverlay = document.getElementById('menuOverlay');
+
+menuToggle.addEventListener('click', () => {
+  mobileMenu.classList.remove('hidden');
+  setTimeout(() => mobileMenu.classList.add('open'), 10);
+});
+
+const closeMenu = () => {
+  mobileMenu.classList.remove('open');
+  setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+};
+
+menuClose.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+</script>
+</body>
+</html>
