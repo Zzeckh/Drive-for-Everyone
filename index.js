@@ -13,13 +13,13 @@ if (!process.env.BOT_TOKEN) {
     process.exit(1);
 }
 
-// 2. Hubungkan ke Bot Telegram
+// 2. Hubungkan ke Bot Telegram (Khusus versi 0.66.0)
 const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
 const chatId = process.env.CHAT_ID;
 
 console.log("⏳ Sedang menyambungkan ke server Telegram...");
 
-// 3. Tangkap Error Polling (Biar nggak diam-diam crash)
+// 3. Tangkap Error Polling
 bot.on('polling_error', (error) => {
     console.error('❌ Polling Error:', error.code);
     if (error.code === 'ETELEGRAM' && error.response?.statusCode === 409) {
