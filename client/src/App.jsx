@@ -1,13 +1,20 @@
 import { useCallback, useEffect, useState } from 'react'
+import Landing from './components/Landing.jsx'
 import UploadZone from './components/UploadZone.jsx'
 import FileCard from './components/FileCard.jsx'
 import { fetchFiles, uploadFile } from './api.js'
 import { formatBytes } from './utils.js'
 
 export default function App() {
+  const [page, setPage] = useState('landing')
   const [files, setFiles] = useState([])
   const [status, setStatus] = useState('')
   const [uploading, setUploading] = useState(false)
+
+  // Ganti tema body sesuai layar (landing = krem, drive = lime)
+  useEffect(() => {
+    document.body.classList.toggle('landing-body', page === 'landing')
+  }, [page])
 
   const load = useCallback(async () => {
     try {
@@ -19,8 +26,8 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    load()
-  }, [load])
+    if (page === 'drive') load()
+  }, [page, load])
 
   const handleUpload = async (file) => {
     setUploading(true)
@@ -38,6 +45,12 @@ export default function App() {
 
   const totalSize = files.reduce((acc, f) => acc + (f.size || 0), 0)
 
+  // LAYAR 1: Landing page dulu
+  if (page === 'landing') {
+    return <Landing onEnter={() => setPage('drive')} />
+  }
+
+  // LAYAR 2: Drive app
   return (
     <div className="phone">
       <span className="doodle" style={{ top: 8, left: 8 }} aria-hidden>✦</span>
